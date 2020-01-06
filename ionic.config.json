@@ -1,0 +1,7 @@
+{
+  "name": "ionic-keep-lite",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
