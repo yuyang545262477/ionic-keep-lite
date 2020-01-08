@@ -13,7 +13,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {AppEffects} from "./app.effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
-import {metaReducers, reducers} from "@reducers/index";
+import {metaReducers, reducers} from "./reducers";
 
 @NgModule({
     declarations: [AppComponent],

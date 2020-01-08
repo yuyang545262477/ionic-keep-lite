@@ -20,18 +20,6 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "@actions/*": [
-        "app/actions/*"
-      ],
-      "@selectors/*": [
-        "app/selectors/*"
-      ],
-      "@reducers/*": [
-        "app/reducers/*"
-      ],
-      "@effects/*": [
-        "app/effects/*"
-      ]
     }
   },
   "angularCompilerOptions": {
