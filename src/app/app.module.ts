@@ -14,6 +14,7 @@ import {AppEffects} from "./app.effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
 import {metaReducers, reducers} from "./reducers";
+import {TagStateModule} from "./states/tag-state/tag-state.module";
 
 @NgModule({
     declarations: [AppComponent],
@@ -22,6 +23,7 @@ import {metaReducers, reducers} from "./reducers";
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
+        TagStateModule,
         StoreModule.forRoot(reducers, {
             metaReducers,
             runtimeChecks: {
