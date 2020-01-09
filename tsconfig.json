@@ -20,6 +20,9 @@
     ],
     "baseUrl": "src",
     "paths": {
+      "@models/*": [
+        "app/models/*"
+      ]
     }
   },
   "angularCompilerOptions": {
