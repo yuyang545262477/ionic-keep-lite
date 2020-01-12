@@ -15,6 +15,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
 import {metaReducers, reducers} from "./reducers";
 import {TagStateModule} from "./states/tag-state/tag-state.module";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
     declarations: [AppComponent],
@@ -33,6 +34,7 @@ import {TagStateModule} from "./states/tag-state/tag-state.module";
         }),
         EffectsModule.forRoot([AppEffects]),
         StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+        IonicStorageModule,
     ],
     providers: [
         StatusBar,

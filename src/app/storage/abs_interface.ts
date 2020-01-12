@@ -1,6 +1,6 @@
 import {Observable} from "rxjs";
 
-export interface Abs_action<T> {
+export interface Abs_interface<T> {
 
     getState(): Observable<T[]>;
 

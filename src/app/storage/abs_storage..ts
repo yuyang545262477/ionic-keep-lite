@@ -1,15 +1,16 @@
-import {Abs_action} from "@storage/abs_action";
+import {Abs_interface} from "@storage/abs_interface";
 import {Storage} from "@ionic/storage";
 import {Observable} from "rxjs";
 import {fromPromise} from "rxjs/internal-compatibility";
 import {shareReplay} from "rxjs/operators";
+import {TStorageKeys} from "@models/storage.type";
 
-export abstract class abs_storage<T> implements Abs_action<T> {
+export abstract class abs_storage<T> implements Abs_interface<T> {
     protected cacheState: Observable<T[]>;
-    private CACHE_SIZE = 1;
+    private readonly CACHE_SIZE = 1;
 
     protected constructor(protected readonly storage: Storage,
-                          protected readonly storageKey: string) {
+                          protected readonly storageKey: TStorageKeys) {
     }
 
     getState(): Observable<T[]> {
