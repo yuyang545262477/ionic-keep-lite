@@ -7,55 +7,57 @@ export const loadTags = createAction(
 
 export const loadTagsSuccess = createAction(
     "[Tag] Load Tags Success",
-    props<{ data: any }>(),
+    props<{ data: ITag[] }>(),
 );
 
 export const loadTagsFailure = createAction(
     "[Tag] Load Tags Failure",
-    props<{ error: any }>(),
+    props<{ error: string }>(),
 );
 
 /*增加Tag*/
-const addingTag = createAction(
+export const addingTag = createAction(
     "[Tag] Adding Tag",
-    props<{ data: ITag }>(),
+    props<{ data: ITag[] }>(),
 );
 //增加成功
-const addTagSuccess = createAction(
+export const addTagSuccess = createAction(
     "[Tag] Add Tag Success",
 );
 //增加失败
-const addTagError = createAction(
+export const addTagError = createAction(
     "[Tag] Add Tag Error",
     props<{ error: string }>(),
 );
 
 /*删除Tag*/
-const removingTag = createAction(
+export const removingTag = createAction(
     "[Tag] removing Tag",
     props<{ tagId: number }>(),
 );
 //删除成功
-const removeTagSuccess = createAction(
+export const removeTagSuccess = createAction(
     "[Tag] remove Success",
 );
 //删除失败
-const removeTagError = createAction(
+export const removeTagError = createAction(
     "[Tag] remove Error",
     props<{ error: string }>(),
 );
 
 /*修改Tag*/
-const modifyTag = createAction(
+export const modifyTag = createAction(
     "[Tag] modify Tag",
     props<{ tag: ITag }>(),
 );
 //修改成功
-const modifyTagSuccess = createAction(
+export const modifyTagSuccess = createAction(
     "[Tag] modify Tag Success",
 );
 //修改失败
-const modifyTagError = createAction(
+export const modifyTagError = createAction(
     "[Tag] modify Tag Error",
     props<{ error: string }>(),
 );
+
+

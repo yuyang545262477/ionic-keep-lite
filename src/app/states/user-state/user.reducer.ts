@@ -1,4 +1,4 @@
-import {createReducer, on} from "@ngrx/store";
+import {Action, createReducer, on} from "@ngrx/store";
 import * as UserActions from "./user.action";
 import {IUser} from "@models/user.model";
 
@@ -22,6 +22,6 @@ const _userReducer = createReducer(initState,
     on(UserActions.modifyUserName, (state, {userName}) => ({...state, userName})),
 );
 
-export function userReducer(state, action) {
+export function userReducer(state: UserState, action: Action) {
     return _userReducer(state, action);
 }

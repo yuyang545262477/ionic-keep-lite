@@ -1,5 +1,6 @@
-import {Action, createReducer} from "@ngrx/store";
+import {Action, createReducer, on} from "@ngrx/store";
 import {ITag} from "@models/tap.model";
+import * as fromTagActions from "./tag.actions";
 
 export const tagFeatureKey = "tag";
 
@@ -18,6 +19,7 @@ export const initialState: State = {
 const tagReducer = createReducer(
     initialState,
     // todo add others reduce action.
+    on(fromTagActions.loadTags, state => ({...state, isLoading: true})),
 );
 
 export function reducer(state: State | undefined, action: Action) {
