@@ -1,11 +1,10 @@
-import {Abs_interface} from '@storage/abs_interface';
 import {Storage} from '@ionic/storage';
 import {Observable} from 'rxjs';
 import {fromPromise} from 'rxjs/internal-compatibility';
 import {shareReplay, tap} from 'rxjs/operators';
 import {TStorageKeys} from '@models/storage.type';
 
-export abstract class abs_storage<T> implements Abs_interface<T> {
+export abstract class abs_storage<T> {
     private cacheState: Observable<T>;
     private readonly CACHE_SIZE = 1;
 
@@ -13,7 +12,8 @@ export abstract class abs_storage<T> implements Abs_interface<T> {
                           protected readonly storageKey: TStorageKeys) {
     }
 
-    getState(): Observable<T> {
+    /*获取状态*/
+    protected getState(): Observable<T> {
         if (this.cacheState) {
             return this.cacheState;
         }
@@ -21,7 +21,8 @@ export abstract class abs_storage<T> implements Abs_interface<T> {
         return this.cacheState;
     }
 
-    setState(states: T): Observable<T> {
+    /*设置状态*/
+    protected setState(states: T): Observable<T> {
         return fromPromise(this.storage.set(this.storageKey, states))
             .pipe(
                 tap(() => this.cacheState = this.renderCache()),
@@ -29,10 +30,7 @@ export abstract class abs_storage<T> implements Abs_interface<T> {
     }
 
     private renderCache() {
-        return fromPromise(this.storage.get(this.storageKey))
-            .pipe(
-                shareReplay(this.CACHE_SIZE),
-            );
+        return fromPromise(this.storage.get(this.storageKey)).pipe(shareReplay(this.CACHE_SIZE));
     }
 
 

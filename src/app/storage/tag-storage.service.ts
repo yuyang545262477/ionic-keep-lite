@@ -13,14 +13,6 @@ export class TagStorageService extends abs_storage<ITag[]> implements IStorageAc
         super(storage, 'tags');
     }
 
-    getState(): Observable<ITag[]> {
-        return super.getState();
-    }
-
-    setState(states: ITag[]): Observable<ITag[]> {
-        return super.setState(states);
-    }
-
     //TODO:将缓存操作.放在此场.而不是effects层.
     addItem(item: ITag): Observable<ITag[]> {
         return [];

@@ -1,7 +1,8 @@
 {
   "name": "ionic-keep-lite",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
