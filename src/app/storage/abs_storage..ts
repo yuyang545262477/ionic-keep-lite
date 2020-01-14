@@ -2,7 +2,7 @@ import {Abs_interface} from "@storage/abs_interface";
 import {Storage} from "@ionic/storage";
 import {Observable} from "rxjs";
 import {fromPromise} from "rxjs/internal-compatibility";
-import {shareReplay} from "rxjs/operators";
+import {shareReplay, tap} from "rxjs/operators";
 import {TStorageKeys} from "@models/storage.type";
 
 export abstract class abs_storage<T> implements Abs_interface<T> {
@@ -21,8 +21,11 @@ export abstract class abs_storage<T> implements Abs_interface<T> {
         return this.cacheState;
     }
 
-    setState(state: T[]): void {
-        this.cacheState = fromPromise(this.storage.set(this.storageKey, state)).pipe(shareReplay(this.CACHE_SIZE));
+    setState(state: T[]): Observable<T[]> {
+        return fromPromise(this.storage.set(this.storageKey, state)).pipe(
+            // @ts-ignore
+            tap(() => this.cacheState = null),
+        );
     }
 
 

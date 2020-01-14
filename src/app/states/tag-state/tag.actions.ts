@@ -18,11 +18,12 @@ export const loadTagsFailure = createAction(
 /*增加Tag*/
 export const addingTag = createAction(
     "[Tag] Adding Tag",
-    props<{ data: ITag[] }>(),
+    props<{ data: ITag }>(),
 );
 //增加成功
 export const addTagSuccess = createAction(
     "[Tag] Add Tag Success",
+    props<{ data: ITag[] }>(),
 );
 //增加失败
 export const addTagError = createAction(

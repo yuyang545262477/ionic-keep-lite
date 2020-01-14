@@ -4,5 +4,5 @@ export interface Abs_interface<T> {
 
     getState(): Observable<T[]>;
 
-    setState(state: T[]): void;
+    setState(state: T[]): Observable<T[]>
 }
