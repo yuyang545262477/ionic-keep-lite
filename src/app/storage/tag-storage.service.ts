@@ -1,24 +1,24 @@
-import {Injectable} from "@angular/core";
-import {abs_storage} from "@storage/abs_storage.";
-import {ITag} from "@models/tap.model";
-import {Storage} from "@ionic/storage";
-import {Observable} from "rxjs";
-import {IStorageAction} from "@storage/storage.interface";
+import {Injectable} from '@angular/core';
+import {abs_storage} from '@storage/abs_storage.';
+import {ITag} from '@models/tap.model';
+import {Storage} from '@ionic/storage';
+import {Observable} from 'rxjs';
+import {IStorageAction} from '@storage/storage.interface';
 
 @Injectable({
-    providedIn: "root",
+    providedIn: 'root',
 })
-export class TagStorageService extends abs_storage<ITag> implements IStorageAction<ITag> {
+export class TagStorageService extends abs_storage<ITag[]> implements IStorageAction<ITag[]> {
     constructor(protected storage: Storage) {
-        super(storage, "tags");
+        super(storage, 'tags');
     }
 
     getState(): Observable<ITag[]> {
         return super.getState();
     }
 
-    setState(state: ITag[]): Observable<ITag[]> {
-        return super.setState(state);
+    setState(states: ITag[]): Observable<ITag[]> {
+        return super.setState(states);
     }
 
     //TODO:将缓存操作.放在此场.而不是effects层.
