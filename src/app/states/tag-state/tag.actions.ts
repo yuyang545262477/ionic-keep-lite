@@ -47,6 +47,9 @@ export const removeTagError = createAction(
     props<{ error: string }>(),
 );
 
+export type TTagModify = {
+    [key in keyof ITag]?: ITag[key]
+}
 
 /*修改Tag*/
 export const modifyTag = createAction(
