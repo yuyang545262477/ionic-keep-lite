@@ -32,13 +32,14 @@ export const addTagError = createAction(
 );
 
 /*删除Tag*/
-export const removingTag = createAction(
+export const removeTag = createAction(
     "[Tag] removing Tag",
     props<{ tagId: number }>(),
 );
 //删除成功
 export const removeTagSuccess = createAction(
     "[Tag] remove Success",
+    props<{ data: ITag[] }>(),
 );
 //删除失败
 export const removeTagError = createAction(
@@ -46,14 +47,16 @@ export const removeTagError = createAction(
     props<{ error: string }>(),
 );
 
+
 /*修改Tag*/
 export const modifyTag = createAction(
     "[Tag] modify Tag",
-    props<{ tag: ITag }>(),
+    props<{ uniKey: number, key: keyof ITag, value: any }>(),
 );
 //修改成功
 export const modifyTagSuccess = createAction(
     "[Tag] modify Tag Success",
+    props<{ data: ITag[] }>(),
 );
 //修改失败
 export const modifyTagError = createAction(

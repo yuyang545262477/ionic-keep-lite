@@ -34,7 +34,7 @@ import {IonicStorageModule} from "@ionic/storage";
         }),
         EffectsModule.forRoot([AppEffects]),
         StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
-        IonicStorageModule,
+        IonicStorageModule.forRoot(),
     ],
     providers: [
         StatusBar,

@@ -18,7 +18,6 @@ export const initialState: State = {
 
 const tagReducer = createReducer(
     initialState,
-    // todo add others reduce action.
     on(fromTagActions.loadTags, state => ({...state, isLoading: true})),
 );
 
