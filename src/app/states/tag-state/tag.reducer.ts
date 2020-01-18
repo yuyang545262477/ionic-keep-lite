@@ -1,14 +1,9 @@
 import {Action, createReducer, on} from "@ngrx/store";
-import {ITag} from "@models/tap.model";
 import * as fromTagActions from "./tag.actions";
+import {State} from "./tag.state";
 
 export const tagFeatureKey = "tag";
 
-export interface State {
-    tags: ITag[]
-    isLoading: boolean;
-    error: string;
-}
 
 export const initialState: State = {
     tags: [],
