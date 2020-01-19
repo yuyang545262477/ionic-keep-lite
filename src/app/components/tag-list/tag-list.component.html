@@ -1,0 +1,11 @@
+<ion-list>
+    <ion-list-header>标签</ion-list-header>
+    <ion-item *ngFor="let tag of tags$|async;trackBy:TrackByTagId">
+        <ion-label>{{tag.name}}</ion-label>
+        <ion-icon name="information-circle" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="create" slot="start"></ion-icon>
+        <ion-label>修改标签</ion-label>
+    </ion-item>
+</ion-list>

@@ -10,10 +10,16 @@ import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {IonicStorageModule} from "@ionic/storage";
 import {RootStateModule} from "./states/root-state.module";
+import {TagListComponent} from "./components/tag-list/tag-list.component";
+import {ListsTypeComponent} from "./components/lists-type/lists-type.component";
+import {PageListComponent} from "./components/page-list/page-list.component";
 
 @NgModule({
-    declarations: [AppComponent],
-    entryComponents: [],
+    declarations: [AppComponent,
+        TagListComponent,
+        ListsTypeComponent,
+        PageListComponent,
+    ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(),

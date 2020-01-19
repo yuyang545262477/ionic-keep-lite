@@ -6,6 +6,7 @@ import {StatusBar} from "@ionic-native/status-bar/ngx";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {RootStoreSelectors, RootStoreState} from "./states";
+import {appPages, IMenuItem} from "./menu-list";
 
 @Component({
     selector: "app-root",
@@ -13,18 +14,7 @@ import {RootStoreSelectors, RootStoreState} from "./states";
     styleUrls: ["app.component.scss"],
 })
 export class AppComponent implements OnInit {
-    public appPages = [
-        {
-            title: "Home",
-            url: "/home",
-            icon: "home",
-        },
-        {
-            title: "List",
-            url: "/list",
-            icon: "list",
-        },
-    ];
+    appPages = appPages;
 
     private isLoading$: Observable<boolean>;
     private errorInfo$: Observable<string>;
@@ -36,6 +26,8 @@ export class AppComponent implements OnInit {
     ) {
         this.initializeApp();
     }
+
+    TrackByPageUrl = (_: number, item: IMenuItem) => item.url;
 
     initializeApp() {
         this.platform.ready().then(() => {
