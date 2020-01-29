@@ -1,18 +1,18 @@
-import {Injectable} from "@angular/core";
-import {abs_storage} from "@storage/abs_storage.";
-import {ITag} from "@models/tap.model";
-import {Storage} from "@ionic/storage";
-import {Observable} from "rxjs";
-import {IStorageAction} from "@storage/storage.interface";
-import {map, mergeMap} from "rxjs/operators";
-import produce from "immer";
+import {Injectable} from '@angular/core';
+import {Storage} from '@ionic/storage';
+import {ITag} from '@models/tap.model';
+import {abs_storage} from '@storage/abs_storage.';
+import {IStorageAction} from '@storage/storage.interface';
+import produce from 'immer';
+import {Observable} from 'rxjs';
+import {map, mergeMap} from 'rxjs/operators';
 
 @Injectable({
-    providedIn: "root",
+    providedIn: 'root',
 })
 export class TagStorageService extends abs_storage<ITag[]> implements IStorageAction<ITag> {
     constructor(protected storage: Storage) {
-        super(storage, "tags");
+        super(storage, 'tags');
     }
 
     addItem(item: ITag): Observable<ITag[]> {
@@ -47,6 +47,5 @@ export class TagStorageService extends abs_storage<ITag[]> implements IStorageAc
             mergeMap((value: ITag[], index) => super.setState(value)),
         );
     }
-
 
 }

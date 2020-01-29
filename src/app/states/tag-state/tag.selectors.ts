@@ -1,7 +1,7 @@
-import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {tagFeatureKey} from "./tag.reducer";
-import {ITag} from "@models/tap.model";
-import {State} from "./tag.state";
+import {ITag} from '@models/tap.model';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {tagFeatureKey} from './tag.reducer';
+import {State} from './tag.state';
 
 
 //获取整个feature状态

@@ -1,1 +1,1 @@
-export type TStorageKeys = "tags" | "user" | "lists"
+export type TStorageKeys = 'tags' | 'user' | 'lists'

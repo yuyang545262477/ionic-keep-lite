@@ -1,25 +1,25 @@
-import { TestBed } from '@angular/core/testing';
-import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable } from 'rxjs';
+import {TestBed} from '@angular/core/testing';
+import {provideMockActions} from '@ngrx/effects/testing';
+import {Observable} from 'rxjs';
 
-import { TagEffects } from './tag.effects';
+import {TagEffects} from './tag.effects';
 
 describe('TagEffects', () => {
-  let actions$: Observable<any>;
-  let effects: TagEffects;
+    let actions$: Observable<any>;
+    let effects: TagEffects;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        TagEffects,
-        provideMockActions(() => actions$)
-      ]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            providers: [
+                TagEffects,
+                provideMockActions(() => actions$),
+            ],
+        });
+
+        effects = TestBed.get<TagEffects>(TagEffects);
     });
 
-    effects = TestBed.get<TagEffects>(TagEffects);
-  });
-
-  it('should be created', () => {
-    expect(effects).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(effects).toBeTruthy();
+    });
 });

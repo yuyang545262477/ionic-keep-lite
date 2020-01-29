@@ -1,1 +1,1 @@
-export const userFeatureKey = "user";
+export const userFeatureKey = 'user';

@@ -1,14 +1,14 @@
-import {Action, createReducer, on} from "@ngrx/store";
-import * as fromTagActions from "./tag.actions";
-import {State} from "./tag.state";
+import {Action, createReducer, on} from '@ngrx/store';
+import * as fromTagActions from './tag.actions';
+import {State} from './tag.state';
 
-export const tagFeatureKey = "tag";
+export const tagFeatureKey = 'tag';
 
 
 export const initialState: State = {
     tags: [],
     isLoading: false,
-    error: "",
+    error: '',
 };
 
 const tagReducer = createReducer(

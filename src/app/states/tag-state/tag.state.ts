@@ -1,4 +1,4 @@
-import {ITag} from "@models/tap.model";
+import {ITag} from '@models/tap.model';
 
 export interface State {
     tags: ITag[]

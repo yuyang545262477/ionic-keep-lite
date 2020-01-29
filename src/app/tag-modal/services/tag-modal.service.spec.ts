@@ -1,12 +1,12 @@
 import {TestBed} from '@angular/core/testing';
 
-import {TagStorageService} from './tag-storage.service';
+import {TagModalService} from './tag-modal.service';
 
-describe('TagStorageService', () => {
+describe('TagModalService', () => {
     beforeEach(() => TestBed.configureTestingModule({}));
 
     it('should be created', () => {
-        const service: TagStorageService = TestBed.get(TagStorageService);
+        const service: TagModalService = TestBed.get(TagModalService);
         expect(service).toBeTruthy();
     });
 });

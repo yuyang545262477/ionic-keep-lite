@@ -1,6 +1,6 @@
-import {Action, createReducer, on} from "@ngrx/store";
-import * as UserActions from "./user.action";
-import {IUser} from "@models/user.model";
+import {IUser} from '@models/user.model';
+import {Action, createReducer, on} from '@ngrx/store';
+import * as UserActions from './user.action';
 
 interface UserState {
     user: IUser,
@@ -10,11 +10,11 @@ interface UserState {
 
 const initState: UserState = {
     user: {
-        avatar: "",
-        name: "",
+        avatar: '',
+        name: '',
     },
     isLoading: false,
-    error: "",
+    error: '',
 };
 
 const _userReducer = createReducer(initState,

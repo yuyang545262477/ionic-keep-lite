@@ -6,13 +6,13 @@ export interface IMenuItem {
 
 export const appPages: IMenuItem[] = [
     {
-        title: "Home",
-        url: "/home",
-        icon: "home",
+        title: 'Home',
+        url: '/home',
+        icon: 'home',
     },
     {
-        title: "List",
-        url: "/list",
-        icon: "list",
+        title: 'List',
+        url: '/list',
+        icon: 'list',
     },
 ];

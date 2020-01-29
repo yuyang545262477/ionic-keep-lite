@@ -1,19 +1,19 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {IonicModule} from '@ionic/angular';
 
-import {HomePage} from './home.page';
+import {TagModalComponent} from './tag-modal.component';
 
-describe('HomePage', () => {
-    let component: HomePage;
-    let fixture: ComponentFixture<HomePage>;
+describe('TagModalComponent', () => {
+    let component: TagModalComponent;
+    let fixture: ComponentFixture<TagModalComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HomePage],
+            declarations: [TagModalComponent],
             imports: [IonicModule.forRoot()],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(HomePage);
+        fixture = TestBed.createComponent(TagModalComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     }));

@@ -1,9 +1,9 @@
-import {Injectable} from "@angular/core";
-import {Actions, createEffect, ofType} from "@ngrx/effects";
-import * as fromTagActions from "./tag.actions";
-import {catchError, map, mergeMap} from "rxjs/operators";
-import {TagStorageService} from "@storage/tag-storage.service";
-import {of} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {TagStorageService} from '@storage/tag-storage.service';
+import {of} from 'rxjs';
+import {catchError, map, mergeMap} from 'rxjs/operators';
+import * as fromTagActions from './tag.actions';
 
 @Injectable()
 export class TagEffects {
