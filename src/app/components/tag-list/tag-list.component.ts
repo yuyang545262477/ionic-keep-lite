@@ -1,14 +1,15 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {ITag} from '@models/tap.model';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {TagStoreSelectors, TagStoreState} from '../../states/tag-state';
-import {TagModalService} from '../../tag-modal/services/tag-modal.service';
+import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
+import {ITag} from "@models/tap.model";
+import {Store} from "@ngrx/store";
+import {Observable} from "rxjs";
+import {TagStoreSelectors, TagStoreState} from "../../states/tag-state";
+import {TagModalService} from "../../tag-modal/services/tag-modal.service";
+import {TagModalComponent} from "../../tag-modal/tag-modal/tag-modal.component";
 
 @Component({
-    selector: 'app-tag-list',
-    templateUrl: './tag-list.component.html',
-    styleUrls: ['./tag-list.component.css'],
+    selector: "app-tag-list",
+    templateUrl: "./tag-list.component.html",
+    styleUrls: ["./tag-list.component.scss"],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagListComponent implements OnInit {
@@ -24,8 +25,7 @@ export class TagListComponent implements OnInit {
     ngOnInit() {
     }
 
-
     openTagModal() {
-        this.tagModalService.present();
+        this.tagModalService.present(TagModalComponent);
     }
 }

@@ -1,14 +1,15 @@
-import {Action, createReducer, on} from '@ngrx/store';
-import * as fromTagActions from './tag.actions';
-import {State} from './tag.state';
+import {Action, createReducer, on} from "@ngrx/store";
+import * as fromTagActions from "./tag.actions";
+import {State} from "./tag.state";
 
-export const tagFeatureKey = 'tag';
+export const tagFeatureKey = "tag";
 
 
 export const initialState: State = {
     tags: [],
+    tempTagName: "tagOne",
     isLoading: false,
-    error: '',
+    error: "",
 };
 
 const tagReducer = createReducer(
@@ -20,6 +21,11 @@ const tagReducer = createReducer(
         fromTagActions.modifyTag,
         fromTagActions.loadTags,
         state => ({...state, isLoading: true}),
+    ),
+    /*增加标签成功*/
+    on(
+        fromTagActions.addTagSuccess,
+        (state, {data}) => ({...state, isLoading: false, tags: data, tempTagName: ""}),
     ),
     /*标签的行为成功,增删改查*/
     on(
@@ -35,6 +41,14 @@ const tagReducer = createReducer(
         fromTagActions.modifyTagError,
         fromTagActions.loadTagsFailure,
         (state, {error}) => ({...state, isLoading: false, error})),
+    on(
+        fromTagActions.resetTempTagName,
+        (state) => ({...state, tempTagName: ""}),
+    ),
+    on(
+        fromTagActions.updateTempTagName,
+        (state, {tempTagName}) => ({...state, tempTagName}),
+    ),
 );
 
 export function reducer(state: State | undefined, action: Action) {

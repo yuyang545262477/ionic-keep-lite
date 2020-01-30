@@ -362,7 +362,7 @@
     tslib "^1.9.0"
     ws "^7.0.1"
 
-"@ionic/angular@^4.7.1":
+"@ionic/angular@^4.11.10":
   version "4.11.10"
   resolved "https://registry.npm.taobao.org/@ionic/angular/download/@ionic/angular-4.11.10.tgz#467430de7ae49c5c5e1506fa64b2d51847ce62eb"
   integrity sha1-RnQw3nrknFxeFQb6ZLLVGEfOYus=
@@ -518,6 +518,11 @@
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/@types/source-list-map/download/@types/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha1-AHiDYGP/rxdBI0m7o2QIfgrALsk=
+
+"@types/uuid@^3.4.7":
+  version "3.4.7"
+  resolved "https://registry.npm.taobao.org/@types/uuid/download/@types/uuid-3.4.7.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fuuid%2Fdownload%2F%40types%2Fuuid-3.4.7.tgz#51d42247473bc00e38cc8dfaf70d936842a36c03"
+  integrity sha1-UdQiR0c7wA44zI369w2TaEKjbAM=
 
 "@types/webpack-sources@^0.1.5":
   version "0.1.6"
@@ -3344,10 +3349,10 @@ immediate@~3.0.5:
   resolved "https://registry.npm.taobao.org/immediate/download/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
   integrity sha1-nbHb0Pr43m++D13V5Wu2BigN5ps=
 
-immer@^5.3.2:
-  version "5.3.2"
-  resolved "https://registry.npm.taobao.org/immer/download/immer-5.3.2.tgz#e3a1c9f3550f925278fd86b8d2d644f7d5e9561b"
-  integrity sha1-46HJ81UPklJ4/Ya40tZE99XpVhs=
+immer@~3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npm.taobao.org/immer/download/immer-3.3.0.tgz#ee7cf3a248d5dd2d4eedfbe7dfc1e9be8c72041d"
+  integrity sha1-7nzzokjV3S1O7fvn38HpvoxyBB0=
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -6979,9 +6984,9 @@ utils-merge@1.0.1:
   resolved "https://registry.npm.taobao.org/utils-merge/download/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2:
+uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
-  resolved "https://registry.npm.taobao.org/uuid/download/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
+  resolved "https://registry.npm.taobao.org/uuid/download/uuid-3.4.0.tgz?cache=0&sync_timestamp=1579208794655&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fuuid%2Fdownload%2Fuuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
 
 validate-npm-package-license@^3.0.1:

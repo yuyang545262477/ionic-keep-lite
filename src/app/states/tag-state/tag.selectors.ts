@@ -1,7 +1,7 @@
-import {ITag} from '@models/tap.model';
-import {createFeatureSelector, createSelector} from '@ngrx/store';
-import {tagFeatureKey} from './tag.reducer';
-import {State} from './tag.state';
+import {ITag} from "@models/tap.model";
+import {createFeatureSelector, createSelector} from "@ngrx/store";
+import {tagFeatureKey} from "./tag.reducer";
+import {State} from "./tag.state";
 
 
 //获取整个feature状态
@@ -25,12 +25,16 @@ export const selectAllMTags = createSelector(
 //获取单个tag元素
 export const selectFeatureTagById = createSelector(
     selectAllMTags,
-    (allTags: ITag[], props: { id: number }) => {
+    (allTags: ITag[], props: { id: string }) => {
         if (!Array.isArray(allTags)) {
             return undefined;
         }
         return allTags.find(value => value.id === props.id);
     },
 );
-
+//获取临时标签名称
+export const selectFeatureTempTagName = createSelector(
+    selectMyFeatureState,
+    (state) => state.tempTagName,
+);
 

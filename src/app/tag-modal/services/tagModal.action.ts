@@ -1,5 +1,7 @@
+import {ComponentRef} from '@ionic/core';
+
 export interface ITagModalAction {
-    present(): Promise<void>
+    present(component: ComponentRef): Promise<void>
 
     dismiss(): Promise<void>;
 }

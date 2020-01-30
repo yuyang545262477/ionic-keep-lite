@@ -1,23 +1,28 @@
-import {Injectable} from '@angular/core';
-import {Storage} from '@ionic/storage';
-import {ITag} from '@models/tap.model';
-import {abs_storage} from '@storage/abs_storage.';
-import {IStorageAction} from '@storage/storage.interface';
-import produce from 'immer';
-import {Observable} from 'rxjs';
-import {map, mergeMap} from 'rxjs/operators';
+import {Injectable} from "@angular/core";
+import {Storage} from "@ionic/storage";
+import {ITag} from "@models/tap.model";
+import {abs_storage} from "@storage/abs_storage.";
+import {IStorageAction} from "@storage/storage.interface";
+import produce from "immer";
+import {Observable} from "rxjs";
+import {map, mergeMap} from "rxjs/operators";
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: "root",
 })
 export class TagStorageService extends abs_storage<ITag[]> implements IStorageAction<ITag> {
     constructor(protected storage: Storage) {
-        super(storage, 'tags');
+        super(storage, "tags");
     }
 
     addItem(item: ITag): Observable<ITag[]> {
         return super.getState().pipe(
-            map(value => [...value, item]),
+            map((value) => {
+                if (!Array.isArray(value)) {
+                    value = [];
+                }
+                return [...value, item];
+            }),
             mergeMap(value => this.setState(value)),
         );
     }
@@ -26,7 +31,7 @@ export class TagStorageService extends abs_storage<ITag[]> implements IStorageAc
         return super.getState();
     }
 
-    modifyItem<R extends keyof ITag>(uniKey: number, key: R, value: ITag[R]): Observable<ITag[]> {
+    modifyItem<R extends keyof ITag>(uniKey: string, key: R, value: ITag[R]): Observable<ITag[]> {
         return super.getState().pipe(
             map((iTags: ITag[]) =>
                 produce(iTags, (tags: ITag[]) => {
@@ -38,13 +43,13 @@ export class TagStorageService extends abs_storage<ITag[]> implements IStorageAc
         );
     }
 
-    removeItem(uniKey: number): Observable<ITag[]> {
+    removeItem(uniKey: string): Observable<ITag[]> {
         return super.getState().pipe(
             map((iTags) => {
                 const findIndex = iTags.findIndex(value => value.id === uniKey);
                 return [...iTags.slice(0, findIndex), ...iTags.slice(findIndex + 1)];
             }),
-            mergeMap((value: ITag[], index) => super.setState(value)),
+            mergeMap((value: ITag[]) => super.setState(value)),
         );
     }
 

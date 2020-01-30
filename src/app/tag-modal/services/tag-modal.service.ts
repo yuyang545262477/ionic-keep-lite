@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {ModalController} from '@ionic/angular';
-import {TagModalModule} from '../tag-modal.module';
-import {TagModalComponent} from '../tag-modal/tag-modal.component';
+import {ComponentRef} from '@ionic/core';
 import {ITagModalAction} from './tagModal.action';
 
 @Injectable({
-    providedIn: TagModalModule,
+    providedIn: 'root',
 })
 export class TagModalService implements ITagModalAction {
     private tagModalInstance: HTMLIonModalElement | undefined;
@@ -13,12 +12,12 @@ export class TagModalService implements ITagModalAction {
     constructor(private modalController: ModalController) {
     }
 
-    async present(): Promise<void> {
+    async present(component: ComponentRef): Promise<void> {
         if (this.tagModalInstance) {
             await this.modalController.dismiss();
         }
         this.tagModalInstance = await this.modalController.create({
-            component: TagModalComponent,
+            component: component,
         });
         return await this.tagModalInstance.present();
     }

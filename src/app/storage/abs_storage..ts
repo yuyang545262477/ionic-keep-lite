@@ -1,8 +1,8 @@
-import {Storage} from '@ionic/storage';
-import {TStorageKeys} from '@models/storage.type';
-import {Observable} from 'rxjs';
-import {fromPromise} from 'rxjs/internal-compatibility';
-import {shareReplay, tap} from 'rxjs/operators';
+import {Storage} from "@ionic/storage";
+import {TStorageKeys} from "@models/storage.type";
+import {Observable} from "rxjs";
+import {fromPromise} from "rxjs/internal-compatibility";
+import {shareReplay, tap} from "rxjs/operators";
 
 export abstract class abs_storage<T> {
     private cacheState: Observable<T>;
