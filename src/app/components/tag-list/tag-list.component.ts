@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 import {ITag} from "@models/tap.model";
 import {Store} from "@ngrx/store";
+import {loadTags} from "@redux/tag-state/tag.actions";
 import {Observable} from "rxjs";
 import {TagStoreSelectors, TagStoreState} from "../../states/tag-state";
 import {TagModalService} from "../../tag-modal/services/tag-modal.service";
@@ -17,13 +18,14 @@ export class TagListComponent implements OnInit {
 
     constructor(private tagsStore: Store<TagStoreState.State>,
                 private tagModalService: TagModalService) {
-        this.tags$ = tagsStore.select(TagStoreSelectors.selectAllMTags);
+        this.tags$ = this.tagsStore.select(TagStoreSelectors.selectAllMTags);
+    }
+
+    ngOnInit() {
+        this.tagsStore.dispatch(loadTags());
     }
 
     TrackByTagId = (_: number, item: ITag) => item.id;
-
-    ngOnInit() {
-    }
 
     openTagModal() {
         this.tagModalService.present(TagModalComponent);

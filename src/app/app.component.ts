@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {Component, OnInit} from "@angular/core";
+import {SplashScreen} from "@ionic-native/splash-screen/ngx";
+import {StatusBar} from "@ionic-native/status-bar/ngx";
 
-import {Platform} from '@ionic/angular';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {appPages, IMenuItem} from './menu-list';
-import {RootStoreSelectors, RootStoreState} from './states';
+import {Platform} from "@ionic/angular";
+import {Store} from "@ngrx/store";
+import {Observable} from "rxjs";
+import {appPages, IMenuItem} from "./menu-list";
+import {RootStoreSelectors, RootStoreState} from "./states";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: 'app.component.html',
-    styleUrls: ['app.component.scss'],
+    selector: "app-root",
+    templateUrl: "app.component.html",
+    styleUrls: ["app.component.scss"],
 })
 export class AppComponent implements OnInit {
     appPages = appPages;
