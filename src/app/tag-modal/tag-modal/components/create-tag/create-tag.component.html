@@ -2,13 +2,15 @@
     <ion-col>
         <ion-icon name="close" (click)="resetTagName()"></ion-icon>
     </ion-col>
-    <ion-input type="text"
-               placeholder="创建新标签"
-               #tagInput
-               debounce="250"
-               [value]="tempTagName$|async"
-               (ionChange)="tagInputChange($event)"
-    ></ion-input>
+    <ion-col size="6">
+        <ion-input type="text"
+                   placeholder="创建新标签"
+                   #tagInput
+                   debounce="250"
+                   [value]="tempTagName$|async"
+                   (ionChange)="tagInputChange($event)"
+        ></ion-input>
+    </ion-col>
     <ion-col>
         <ion-button (click)="doCreate(tagInput.value)">
             <ion-icon name="add"></ion-icon>

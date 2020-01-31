@@ -6,12 +6,18 @@
             </ion-button>
         </ion-col>
         <ion-col size="7">
-            <ion-input disabled>{{tagItem.name}}</ion-input>
+            <ion-input [disabled]="!tagItem.isEdit" [value]="tagItem.name" #editInput></ion-input>
         </ion-col>
         <ion-col size="auto">
-            <ion-button color="light">
+            <ion-button color="light" *ngIf="!tagItem.isEdit;else updateBtn" (click)="changeEdit()">
                 <ion-icon slot="icon-only" name="create"></ion-icon>
             </ion-button>
+            <ng-template #updateBtn>
+                <ion-button color="light" (click)="applyEdit(editInput.value)">
+                    <!--                <ion-button color="light" (click)="changeEdit()">-->
+                    <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+                </ion-button>
+            </ng-template>
         </ion-col>
     </ion-row>
 </ion-grid>

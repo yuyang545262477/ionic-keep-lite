@@ -33,6 +33,8 @@ const tagReducer = createReducer(
         fromTagActions.removeTagSuccess,
         fromTagActions.modifyTagSuccess,
         fromTagActions.loadTagsSuccess,
+        fromTagActions.updateTagEditSuccess,
+        fromTagActions.updateTagNameSuccess,
         (state, {data}) => ({...state, isLoading: false, tags: data}),
     ),
     on(
@@ -40,6 +42,8 @@ const tagReducer = createReducer(
         fromTagActions.removeTagError,
         fromTagActions.modifyTagError,
         fromTagActions.loadTagsFailure,
+        fromTagActions.updateTagEditError,
+        fromTagActions.updateTagNameError,
         (state, {error}) => ({...state, isLoading: false, error})),
     on(
         fromTagActions.resetTempTagName,

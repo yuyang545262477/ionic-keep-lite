@@ -22,7 +22,7 @@ export abstract class abs_storage<T> {
     }
 
     /*设置状态*/
-    protected setState(states: T): Observable<T> {
+    public setState(states: T): Observable<T> {
         return fromPromise(this.storage.set(this.storageKey, states))
             .pipe(
                 tap(() => this.cacheState = this.renderCache()),

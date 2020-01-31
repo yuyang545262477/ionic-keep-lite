@@ -18,7 +18,7 @@ export const loadTagsFailure = createAction(
 /*增加Tag*/
 export const addingTag = createAction(
     "[Tag] Adding Tag",
-    props<{ data: ITag }>(),
+    props<{ name: string }>(),
 );
 //增加成功
 export const addTagSuccess = createAction(
@@ -47,9 +47,6 @@ export const removeTagError = createAction(
     props<{ error: string }>(),
 );
 
-export type TTagModify = {
-    [key in keyof ITag]?: ITag[key]
-}
 
 /*修改Tag*/
 export const modifyTag = createAction(
@@ -76,6 +73,37 @@ export const updateTempTagName = createAction(
     "[Tag] tempTag Name update",
     props<{ tempTagName: string }>(),
 );
+/*变更标签的可读状态*/
+export const updateTagEdit = createAction(
+    "[Tag] updateTagEditStatus",
+    props<{ uniKey: string, disStatus: boolean }>(),
+);
+/*变更可读状态成功*/
+export const updateTagEditSuccess = createAction(
+    "[Tag] updateTagEditSuccess",
+    props<{ data: ITag[] }>(),
+);
+/*变更可读状态失败*/
+export const updateTagEditError = createAction(
+    "[Tag] updateTagEditError",
+    props<{ error: string }>(),
+);
+/*变更标签名称状态*/
+export const updateTagName = createAction(
+    "[Tag] updateTagName",
+    props<{ uniKey: string, tagName: string }>(),
+);
+/*变更标签名称状态成功*/
+export const updateTagNameSuccess = createAction(
+    "[Tag] updateTagNameSuccess",
+    props<{ data: ITag[] }>(),
+);
+/*变更标签名称状态失败*/
+export const updateTagNameError = createAction(
+    "[Tag] updateTagNameError",
+    props<{ error: string }>(),
+);
+
 
 
 
