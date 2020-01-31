@@ -1,11 +1,11 @@
 import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 import {ITag} from "@models/tap.model";
 import {select, Store} from "@ngrx/store";
+import {TagStoreState} from "@redux/tag-state";
+import {addingTag, resetTempTagName, updateTempTagName} from "@redux/tag-state/tag.actions";
+import {selectFeatureTempTagName} from "@redux/tag-state/tag.selectors";
 import {Observable} from "rxjs";
 import {v4 as uuid} from "uuid";
-import {TagStoreState} from "../../../../states/tag-state";
-import {addingTag, resetTempTagName, updateTempTagName} from "../../../../states/tag-state/tag.actions";
-import {selectFeatureTempTagName} from "../../../../states/tag-state/tag.selectors";
 
 @Component({
     selector: "app-create-tag",

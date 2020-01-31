@@ -29,8 +29,14 @@ export class TagEffects {
         this.actions$.pipe(
             ofType(fromTagActions.removeTag),
             mergeMap((value) => this.tagStorageService.removeItem(value.tagId).pipe(
-                map(data => fromTagActions.removeTagSuccess({data})),
-                catchError(err => of(fromTagActions.removeTagError({error: err}))),
+                switchMap(data => [
+                    fromTagActions.removeTagSuccess({data}),
+                    fromAppActions.showSuccessToast({message: "标签删除成功！"}),
+                ]),
+                catchError(err => from([
+                    fromTagActions.removeTagError({error: err}),
+                    fromAppActions.showErrorToast({errMsg: "删除标签失败！"}),
+                ])),
             )),
         ),
     );

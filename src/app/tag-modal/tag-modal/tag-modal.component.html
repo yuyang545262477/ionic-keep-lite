@@ -4,9 +4,7 @@
         <app-create-tag></app-create-tag>
     </ion-item>
     <ion-item *ngFor="let tag of tags$|async  trackBy:TrackByTagId">
-        <ion-icon>i</ion-icon>
-        <ion-input disabled>{{tag.name}}</ion-input>
-        <ion-icon>j</ion-icon>
+        <app-tag-item [tagItem]="tag"></app-tag-item>
     </ion-item>
 </ion-list>
 <ion-button (click)="closeModal()">close Modal</ion-button>
