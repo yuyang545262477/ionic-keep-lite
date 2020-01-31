@@ -1,5 +1,5 @@
-import {createSelector} from '@ngrx/store';
-import * as fromTags from './tag-state/tag.selectors';
+import {createSelector} from "@ngrx/store";
+import * as fromTags from "./tag-state/tag.selectors";
 
 //拦截.整个程序错误
 export const selectAllError = createSelector(fromTags.selectMyFeatureError, (state) => state);

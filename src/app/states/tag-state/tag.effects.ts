@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {TagStorageService} from "@storage/tag-storage.service";
-import {of} from "rxjs";
-import {catchError, map, mergeMap} from "rxjs/operators";
+import {from, of} from "rxjs";
+import {catchError, map, mergeMap, switchMap} from "rxjs/operators";
+import * as fromAppActions from "../action";
 import * as fromTagActions from "./tag.actions";
 
 @Injectable()
@@ -12,8 +13,14 @@ export class TagEffects {
         this.actions$.pipe(
             ofType(fromTagActions.addingTag),
             mergeMap((action) => this.tagStorageService.addItem(action.data).pipe(
-                map(value => fromTagActions.addTagSuccess({data: value})),
-                catchError(err => of(fromTagActions.addTagError({error: err}))),
+                switchMap(value => [
+                    fromTagActions.addTagSuccess({data: value}),
+                    fromAppActions.showSuccessToast({message: "添加成功!"}),
+                ]),
+                catchError(err => from([
+                    fromTagActions.addTagError({error: err}),
+                    fromAppActions.showErrorToast({errMsg: "添加标签失败！"}),
+                ])),
             )),
         ),
     );
