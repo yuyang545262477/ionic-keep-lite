@@ -7,7 +7,7 @@ export const tagFeatureKey = "tag";
 
 export const initialState: State = {
     tags: [],
-    tempTagName: "tagOne",
+    tempTagName: "",
     isLoading: false,
     error: "",
 };
