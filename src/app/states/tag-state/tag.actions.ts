@@ -104,6 +104,12 @@ export const updateTagNameError = createAction(
     props<{ error: string }>(),
 );
 
+/*选中tagId*/
+export const updateChosenTagId = createAction(
+    "[Tag] updateChosenTagId",
+    props<{ tagId: string }>(),
+);
+
 
 
 

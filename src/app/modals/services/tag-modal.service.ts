@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {ModalController} from '@ionic/angular';
-import {ComponentRef} from '@ionic/core';
-import {ITagModalAction} from './tagModal.action';
+import {Injectable} from "@angular/core";
+import {ModalController} from "@ionic/angular";
+import {ComponentRef} from "@ionic/core";
+import {ITagModalAction} from "./tagModal.action";
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: "root",
 })
 export class TagModalService implements ITagModalAction {
     private tagModalInstance: HTMLIonModalElement | undefined;
@@ -30,9 +30,8 @@ export class TagModalService implements ITagModalAction {
         if (dismissResult) {
             this.tagModalInstance = undefined;
         } else {
-            console.error('dismiss error');
+            console.error("dismiss error");
         }
-        console.log(dismissResult);
     }
 
 

@@ -1,9 +1,13 @@
 import {Injectable} from "@angular/core";
+import {Router} from "@angular/router";
+import {MenuController} from "@ionic/angular";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
+import {TagStoreAction} from "@redux/tag-state";
 import {ToastService} from "@services/toast.service";
-import {tap} from "rxjs/operators";
-import {TagModalService} from "../tag-modal/services/tag-modal.service";
-import {TagModalComponent} from "../tag-modal/tag-modal/tag-modal.component";
+import {from, of} from "rxjs";
+import {catchError, map, mergeMap, switchMap, tap} from "rxjs/operators";
+import {TagModalService} from "../modals/services/tag-modal.service";
+import {TagModalComponent} from "../modals/tag-modal/tag-modal.component";
 import * as fromAppActions from "./action";
 
 @Injectable()
@@ -51,9 +55,47 @@ export class AppEffects {
         },
     );
 
+    /*进入列表详情*/
+    goKeepList$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.goListPage),
+            mergeMap((action) => from(this.router.navigate(["./list"])).pipe(
+                switchMap(() => [
+                    TagStoreAction.updateChosenTagId({tagId: action.tagId || ""}),
+                    fromAppActions.closeSideMenu(),
+                ]),
+                catchError((err) => from([
+                    fromAppActions.showErrorToast({errMsg: "路由切换错误"}),
+                ])),
+            )),
+        ),
+    );
+
+    /*关闭sieMenu*/
+    closeSideMenu$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.closeSideMenu),
+            tap(() => this.menuController.close()),
+        ),
+        {
+            dispatch: false,
+        },
+    );
+    /*首页路由跳转*/
+    goHomePage$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.goHomePage),
+            mergeMap(() => from(this.router.navigate(["/home"])).pipe(
+                map(() => fromAppActions.closeSideMenu()),
+                catchError((err) => of(fromAppActions.showErrorToast({errMsg: "路由切换错误！"}))),
+            )),
+        ),
+    );
+
     constructor(private actions$: Actions,
                 private toastService: ToastService,
                 private tagModalService: TagModalService,
-    ) {
+                private menuController: MenuController,
+                private router: Router) {
     }
 }

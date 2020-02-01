@@ -1,8 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 import {ITag} from "@models/tap.model";
 import {Store} from "@ngrx/store";
-import {openTagModal} from "@redux/action";
-import {RootStoreState} from "@redux/index";
+import {RootStoreAction, RootStoreState} from "@redux/index";
 import {loadTags} from "@redux/tag-state/tag.actions";
 import {Observable} from "rxjs";
 import {TagStoreSelectors, TagStoreState} from "../../states/tag-state";
@@ -29,7 +28,13 @@ export class TagListComponent implements OnInit {
 
     openTagModal() {
         this.appStore.dispatch(
-            openTagModal(),
+            RootStoreAction.openTagModal(),
+        );
+    }
+
+    goListPage(tagId: string) {
+        this.appStore.dispatch(
+            RootStoreAction.goListPage({tagId}),
         );
     }
 }

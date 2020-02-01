@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {EffectsModule} from '@ngrx/effects';
-import {StoreModule} from '@ngrx/store';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {environment} from '../../environments/environment';
-import {metaReducers, reducers} from '../reducers';
-import {AppEffects} from './app.effects';
-import {TagStateModule} from './tag-state/tag-state.module';
+import {NgModule} from "@angular/core";
+import {EffectsModule} from "@ngrx/effects";
+import {StoreModule} from "@ngrx/store";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../../environments/environment";
+import {metaReducers, reducers} from "../reducers";
+import {AppEffects} from "./app.effects";
+import {TagStateModule} from "./tag-state/tag-state.module";
 
 
 @NgModule({

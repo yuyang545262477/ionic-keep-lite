@@ -8,8 +8,10 @@ export const tagFeatureKey = "tag";
 export const initialState: State = {
     tags: [],
     tempTagName: "",
+    chosenTagId: "",
     isLoading: false,
     error: "",
+
 };
 
 const tagReducer = createReducer(
@@ -52,6 +54,10 @@ const tagReducer = createReducer(
     on(
         fromTagActions.updateTempTagName,
         (state, {tempTagName}) => ({...state, tempTagName}),
+    ),
+    on(
+        fromTagActions.updateChosenTagId,
+        (state, {tagId}) => ({...state, chosenTagId: tagId}),
     ),
 );
 

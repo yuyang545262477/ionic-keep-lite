@@ -9,7 +9,7 @@
             <ion-content>
                 <ion-list>
                     <ion-menu-toggle *ngFor="let p of appPages;trackBy:TrackByPageUrl" auto-hide="false">
-                        <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                        <ion-item  [routerDirection]="'root'" (click)="dispatchAction(p.action)">
                             <ion-icon [name]="p.icon" slot="start"></ion-icon>
                             <ion-label>
                                 {{p.title}}
