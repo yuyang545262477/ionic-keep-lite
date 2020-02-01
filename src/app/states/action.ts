@@ -10,3 +10,12 @@ export const showErrorToast = createAction(
     props<{ errMsg: string }>(),
 );
 
+/*show modal */
+export const openTagModal = createAction(
+    "[App] openTagModal",
+);
+/*close modal*/
+export const closeTagModal = createAction(
+    "[App] closeTagModal",
+);
+

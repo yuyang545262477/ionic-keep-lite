@@ -1,9 +1,10 @@
 import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 import {ITag} from "@models/tap.model";
 import {Store} from "@ngrx/store";
+import {closeTagModal} from "@redux/action";
+import {RootStoreState} from "@redux/index";
 import {Observable} from "rxjs";
 import {TagStoreSelectors, TagStoreState} from "../../states/tag-state";
-import {TagModalService} from "../services/tag-modal.service";
 
 @Component({
     selector: "app-tag-modal",
@@ -15,25 +16,19 @@ import {TagModalService} from "../services/tag-modal.service";
 export class TagModalComponent implements OnInit {
     tags$: Observable<ITag[]>;
 
-    constructor(private tagModalService: TagModalService,
+    constructor(private rootStore: Store<RootStoreState.State>,
                 private tagsStore: Store<TagStoreState.State>) {
         this.tags$ = this.tagsStore.select(TagStoreSelectors.selectAllMTags);
     }
-
-    TrackByTagId = (_: number, item: ITag) => item.id;
 
     ngOnInit() {
     }
 
     closeModal() {
-        this.tagModalService.dismiss();
+        this.rootStore.dispatch(
+            closeTagModal(),
+        );
     }
 
-    doCreate() {
-        console.log("doCreate");
-    }
-
-    cancelCreate() {
-        console.log("cancelCreate");
-    }
+    TrackByTagId = (_: number, item: ITag) => item.id;
 }
