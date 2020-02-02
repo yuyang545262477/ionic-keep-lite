@@ -6,7 +6,7 @@ import {Platform} from "@ionic/angular";
 import {Action, Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {appPages, IMenuItem} from "./menu-list";
-import {RootStoreAction, RootStoreSelectors, RootStoreState} from "./states";
+import {RootStoreSelectors, RootStoreState} from "./states";
 
 @Component({
     selector: "app-root",
@@ -45,18 +45,6 @@ export class AppComponent implements OnInit {
         );
     }
 
-
-    goPage(url: "home" | "list") {
-        if (url === "list") {
-            this.rootStore.dispatch(
-                RootStoreAction.goListPage({tagId: ""}),
-            );
-        } else {
-            this.rootStore.dispatch(
-                RootStoreAction.goHomePage(),
-            );
-        }
-    }
 
     dispatchAction(event: () => Action) {
         this.rootStore.dispatch(
