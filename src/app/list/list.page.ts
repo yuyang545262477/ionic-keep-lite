@@ -1,41 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
+import {ITag} from "@models/tap.model";
+import {select, Store} from "@ngrx/store";
+import {TagStoreSelectors, TagStoreState} from "@redux/tag-state";
+import {Observable} from "rxjs";
 
 @Component({
-    selector: 'app-list',
-    templateUrl: 'list.page.html',
-    styleUrls: ['list.page.scss'],
+    selector: "app-list",
+    templateUrl: "list.page.html",
+    styleUrls: ["list.page.scss"],
 })
 export class ListPage implements OnInit {
-    public items: Array<{ title: string; note: string; icon: string }> = [];
-    private selectedItem: any;
-    private icons = [
-        'flask',
-        'wifi',
-        'beer',
-        'football',
-        'basketball',
-        'paper-plane',
-        'american-football',
-        'boat',
-        'bluetooth',
-        'build',
-    ];
+    chosenTag$: Observable<ITag>;
 
-    constructor() {
-        for (let i = 1; i < 11; i++) {
-            this.items.push({
-                title: 'Item ' + i,
-                note: 'This is item #' + i,
-                icon: this.icons[Math.floor(Math.random() * this.icons.length)],
-            });
-        }
+    constructor(private tagStore: Store<TagStoreState.State>) {
+        this.chosenTag$ = this.tagStore.pipe(select(TagStoreSelectors.selectTagChosenInfo));
     }
 
     ngOnInit() {
     }
 
-    // add back when alpha.4 is out
-    // navigate(item) {
-    //   this.router.navigate(['/list', JSON.stringify(item)]);
-    // }
 }

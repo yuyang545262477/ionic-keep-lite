@@ -1,6 +1,6 @@
 import {ITag} from "@models/tap.model";
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {tagFeatureKey} from "./tag.reducer";
+import {initChosenTag, tagFeatureKey} from "./tag.reducer";
 import {State} from "./tag.state";
 
 
@@ -22,6 +22,11 @@ export const selectAllMTags = createSelector(
     selectMyFeatureState,
     (state: State) => state.tags,
 );
+//获取选中TagId.
+export const selectTagChosenId = createSelector(
+    selectMyFeatureState,
+    s1 => s1.chosenTagId,
+);
 //获取单个tag元素
 export const selectFeatureTagById = createSelector(
     selectAllMTags,
@@ -36,5 +41,14 @@ export const selectFeatureTagById = createSelector(
 export const selectFeatureTempTagName = createSelector(
     selectMyFeatureState,
     (state) => state.tempTagName,
+);
+
+
+//获取选中tag名称
+
+export const selectTagChosenInfo = createSelector(
+    selectTagChosenId,
+    selectAllMTags,
+    (chosenId, tags) => tags.find(value => value.id === chosenId) || initChosenTag,
 );
 

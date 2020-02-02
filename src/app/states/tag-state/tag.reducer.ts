@@ -1,9 +1,15 @@
+import {ITag} from "@models/tap.model";
 import {Action, createReducer, on} from "@ngrx/store";
 import * as fromTagActions from "./tag.actions";
 import {State} from "./tag.state";
 
 export const tagFeatureKey = "tag";
 
+export const initialTag: ITag = {
+    id: "", isEdit: false, name: "",
+};
+
+export const initChosenTag: ITag = Object.assign({}, initialTag, {name: "keep-lite"});
 
 export const initialState: State = {
     tags: [],
@@ -11,7 +17,6 @@ export const initialState: State = {
     chosenTagId: "",
     isLoading: false,
     error: "",
-
 };
 
 const tagReducer = createReducer(
