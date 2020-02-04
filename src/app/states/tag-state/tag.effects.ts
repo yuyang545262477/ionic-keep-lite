@@ -37,7 +37,7 @@ export class TagEffects {
             ofType(fromTagActions.removeTag),
             withLatestFrom(this.tagStore.pipe(select(selectAllMTags))),
             map(([action, tags]): ITag[] => fromTagLogic.removeByUniKey(action.tagId, tags)),
-            mergeMap((tags: ITag[]) => this.tagStorageService.setState(tags).pipe(
+            mergeMap((tags: ITag[]) => this.tagStorageService.setItems(tags).pipe(
                 switchMap(data => [
                     fromTagActions.removeTagSuccess({data}),
                     fromAppActions.showSuccessToast({message: "标签删除成功！"}),
@@ -51,15 +51,15 @@ export class TagEffects {
     );
 
     /*修改*/
-    modifyTag$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(fromTagActions.modifyTag),
-            mergeMap((action => this.tagStorageService.modifyItem(action.uniKey, action.key, action.value).pipe(
-                map(value => fromTagActions.modifyTagSuccess({data: value})),
-                catchError((error) => of(fromTagActions.modifyTagError({error}))),
-            ))),
-        ),
-    );
+    // modifyTag$ = createEffect(() =>
+    //     this.actions$.pipe(
+    //         ofType(fromTagActions.modifyTag),
+    //         mergeMap((action => this.tagStorageService.modifyItem(action.uniKey, action.key, action.value).pipe(
+    //             map(value => fromTagActions.modifyTagSuccess({data: value})),
+    //             catchError((error) => of(fromTagActions.modifyTagError({error}))),
+    //         ))),
+    //     ),
+    // );
 
 
     /*加载*/
@@ -86,7 +86,7 @@ export class TagEffects {
             //logic 执行函数
             map(([action, tags]) => fromTagLogic.updateTagEditByUniKey(action.disStatus, action.uniKey, tags)),
             //effect具体的method
-            mergeMap((action: ITag[]) => this.tagStorageService.setState(action).pipe(
+            mergeMap((action: ITag[]) => this.tagStorageService.setItems(action).pipe(
                 // effect 成功函数
                 map((data) => fromTagActions.updateTagEditSuccess({data})),
                 // effect 失败逻辑
@@ -105,7 +105,7 @@ export class TagEffects {
             //logic 执行函数
             map(([action, tags]) => fromTagLogic.updateTagNameByUniKey(tags, action.uniKey, action.tagName)),
             //effect具体的method
-            mergeMap((action) => this.tagStorageService.setState(action).pipe(
+            mergeMap((action) => this.tagStorageService.setItems(action).pipe(
                 //effect 成功函数
                 switchMap((data) => [
                     fromTagActions.updateTagNameSuccess({data}),

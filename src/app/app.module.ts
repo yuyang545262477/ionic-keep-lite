@@ -27,7 +27,7 @@ import {TagModalModule} from "./modals/tag-modal.module";
         AppRoutingModule,
         IonicStorageModule.forRoot({
             dbKey: "ionic-keep-lite",
-            driverOrder: ["localstorage", "sqlite"],
+            driverOrder: ["websql", "sqlite", "localstorage"],
         }),
         RootStateModule,
         TagModalModule,

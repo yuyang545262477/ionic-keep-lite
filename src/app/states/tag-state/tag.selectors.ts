@@ -49,6 +49,11 @@ export const selectFeatureTempTagName = createSelector(
 export const selectTagChosenInfo = createSelector(
     selectTagChosenId,
     selectAllMTags,
-    (chosenId, tags) => tags.find(value => value.id === chosenId) || initChosenTag,
+    (chosenId, tags) => {
+        if (!Array.isArray(tags)) {
+            return initChosenTag;
+        }
+        return tags.find(value => value.id === chosenId) || initChosenTag;
+    },
 );
 
