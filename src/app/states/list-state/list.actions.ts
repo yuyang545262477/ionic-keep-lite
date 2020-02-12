@@ -7,39 +7,39 @@ export const loadLists = createAction(
 
 export const loadListsSuccess = createAction(
     "[List] Load Lists Success",
-    props<{ data: any }>(),
+    props<{ data: IList[] }>(),
 );
 
 export const loadListsFailure = createAction(
     "[List] Load Lists Failure",
-    props<{ error: any }>(),
+    props<{ error: string }>(),
 );
-/*增加列表对象*/
 /*增加列表状态*/
 export const addList = createAction(
     "[List] addList",
 );
-/*增加列表状态成功*/
+//增加列表状态成功
 export const addListSuccess = createAction(
     "[List] addListSuccess",
     props<{ list: IList[] }>(),
 );
-/*增加列表状态失败*/
+//增加列表状态失败
 export const addListError = createAction(
     "[List] addListError",
     props<{ error: string }>(),
 );
+
 /*存储列表状态*/
 export const storageList = createAction(
     "[List] storageList",
     props<{ list: IList[], oldList: IList[] }>(),
 );
-/*存储列表状态成功*/
+//存储列表状态成功
 export const storageListSuccess = createAction(
     "[List] storageListSuccess",
     props<{ list: IList[] }>(),
 );
-/*存储列表状态失败*/
+//存储列表状态失败
 export const storageListError = createAction(
     "[List] storageListError",
     props<{
@@ -47,6 +47,7 @@ export const storageListError = createAction(
         error: string
     }>(),
 );
+
 /*删除列表对象*/
 
 /*归档列表对象*/
