@@ -3,13 +3,13 @@ import {NgModule} from "@angular/core";
 import {EffectsModule} from "@ngrx/effects";
 import {StoreModule} from "@ngrx/store";
 import {ListEffects} from "./list.effects";
-import * as fromList from "./list.reducer";
+import * as fromListReducer from "./list.reducer";
 
 @NgModule({
     declarations: [],
     imports: [
         CommonModule,
-        StoreModule.forFeature(fromList.listFeatureKey, fromList.reducer),
+        StoreModule.forFeature(fromListReducer.listFeatureKey, fromListReducer.reducer),
         EffectsModule.forFeature([ListEffects]),
     ],
 })

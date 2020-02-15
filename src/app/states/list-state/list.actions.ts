@@ -48,6 +48,13 @@ export const storageListError = createAction(
     }>(),
 );
 
+export const openChosenModal = createAction(
+    "[List] openChosenModal",
+);
+export const closeListModal = createAction(
+    "[List] closeListModal",
+);
+
 /*删除列表对象*/
 
 /*归档列表对象*/

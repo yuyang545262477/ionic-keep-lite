@@ -6,7 +6,9 @@
                     <ion-title>Menu</ion-title>
                 </ion-toolbar>
             </ion-header>
+            <!--侧壁栏-->
             <ion-content>
+                <!--顶部路由-->
                 <ion-list>
                     <ion-menu-toggle *ngFor="let p of appPages;trackBy:TrackByPageUrl" auto-hide="false">
                         <ion-item [routerDirection]="'root'" (click)="dispatchAction(p.action)">
@@ -17,7 +19,9 @@
                         </ion-item>
                     </ion-menu-toggle>
                 </ion-list>
-                <app-tag-list></app-tag-list>
+                <!--标签列表-->
+                <app-tag-list>
+                </app-tag-list>
             </ion-content>
         </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>

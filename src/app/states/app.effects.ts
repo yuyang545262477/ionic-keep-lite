@@ -6,7 +6,7 @@ import {TagStoreAction} from "@redux/tag-state";
 import {ToastService} from "@services/toast.service";
 import {from, of} from "rxjs";
 import {catchError, map, mergeMap, switchMap, tap} from "rxjs/operators";
-import {TagModalService} from "../modals/services/tag-modal.service";
+import {MyModalService} from "../modals/services/my-modal.service";
 import {TagModalComponent} from "../modals/tag-modal/tag-modal.component";
 import * as fromAppActions from "./action";
 
@@ -37,7 +37,7 @@ export class AppEffects {
     openTagModal$ = createEffect(
         () => this.actions$.pipe(
             ofType(fromAppActions.openTagModal),
-            tap(() => this.tagModalService.present(TagModalComponent)),
+            tap(() => this.myModalService.present(TagModalComponent)),
         ),
         {
             dispatch: false,
@@ -48,7 +48,7 @@ export class AppEffects {
     closeTagModal$ = createEffect(
         () => this.actions$.pipe(
             ofType(fromAppActions.closeTagModal),
-            tap(() => this.tagModalService.dismiss()),
+            tap(() => this.myModalService.dismiss()),
         ),
         {
             dispatch: false,
@@ -64,7 +64,7 @@ export class AppEffects {
                     TagStoreAction.updateChosenTagId({tagId: action.tagId || ""}),
                     fromAppActions.closeSideMenu(),
                 ]),
-                catchError((err) => from([
+                catchError(() => from([
                     fromAppActions.showErrorToast({errMsg: "路由切换错误"}),
                 ])),
             )),
@@ -87,14 +87,14 @@ export class AppEffects {
             ofType(fromAppActions.goHomePage),
             mergeMap(() => from(this.router.navigate(["/home"])).pipe(
                 map(() => fromAppActions.closeSideMenu()),
-                catchError((err) => of(fromAppActions.showErrorToast({errMsg: "路由切换错误！"}))),
+                catchError(() => of(fromAppActions.showErrorToast({errMsg: "路由切换错误！"}))),
             )),
         ),
     );
 
     constructor(private actions$: Actions,
                 private toastService: ToastService,
-                private tagModalService: TagModalService,
+                private myModalService: MyModalService,
                 private menuController: MenuController,
                 private router: Router) {
     }

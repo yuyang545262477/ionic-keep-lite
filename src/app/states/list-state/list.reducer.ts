@@ -1,25 +1,12 @@
-import {IList} from "@models/IList";
 import {Action, createReducer, on} from "@ngrx/store";
-import {fromListAction} from "@redux/list-state/index";
+import * as fromListAction from "./list.actions";
+import * as fromListState from "./list.state";
 
 export const listFeatureKey = "list";
 
-export interface State {
-    list: IList[],
-    trashList: IList[],
-    isLoading: boolean;
-    error: string
-}
-
-export const initialState: State = {
-    list: [],
-    trashList: [],
-    error: "",
-    isLoading: false,
-};
 
 const listReducer = createReducer(
-    initialState,
+    fromListState.initialState,
     //添加列表
     on(fromListAction.addList,
         (state) => ({...state, isLoading: true}),
@@ -42,6 +29,6 @@ const listReducer = createReducer(
     ),
 );
 
-export function reducer(state: State | undefined, action: Action) {
+export function reducer(state: fromListState.State | undefined, action: Action) {
     return listReducer(state, action);
 }

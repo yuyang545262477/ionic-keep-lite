@@ -16,5 +16,4 @@ export interface IList {
     createTime: number; //创建时间
     editTime: number; //修改时间
     tagId?: string;//标签id
-
 }

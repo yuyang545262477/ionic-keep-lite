@@ -1,12 +1,11 @@
-import * as fromListAction from "./list.actions";
-import * as fromListLogic from "./list.logic";
-import * as fromListReducer from "./list.reducer";
-import * as fromListSelector from "./list.selectors";
-
+import * as ListStoreAction from "./list.actions";
+import * as ListStoreLogic from "./list.logic";
+import * as ListStoreSelector from "./list.selectors";
+import * as ListStoreState from "./list.state";
 
 export {
-    fromListAction,
-    fromListReducer,
-    fromListLogic,
-    fromListSelector,
+    ListStoreAction,
+    ListStoreLogic,
+    ListStoreSelector,
+    ListStoreState,
 };

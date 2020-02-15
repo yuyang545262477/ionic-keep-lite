@@ -11,7 +11,6 @@ import {TagStoreSelectors, TagStoreState} from "../../states/tag-state";
     templateUrl: "./tag-modal.component.html",
     styleUrls: ["./tag-modal.component.scss"],
     changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class TagModalComponent implements OnInit {
     tags$: Observable<ITag[]>;

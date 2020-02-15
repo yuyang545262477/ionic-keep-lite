@@ -5,26 +5,26 @@ import {State} from "./tag.state";
 
 
 //获取整个feature状态
-export const selectMyFeatureState = createFeatureSelector<State>(tagFeatureKey);
+export const selectTagState = createFeatureSelector<State>(tagFeatureKey);
 
 //获取error状态
 export const selectMyFeatureError = createSelector(
-    selectMyFeatureState,
+    selectTagState,
     (state: State) => state.error,
 );
 //获取isLoading
 export const selectMyFeatureIsLoading = createSelector(
-    selectMyFeatureState,
+    selectTagState,
     (state: State) => state.isLoading,
 );
 //获取整个tags数组
 export const selectAllMTags = createSelector(
-    selectMyFeatureState,
+    selectTagState,
     (state: State) => state.tags,
 );
 //获取选中TagId.
 export const selectTagChosenId = createSelector(
-    selectMyFeatureState,
+    selectTagState,
     s1 => s1.chosenTagId,
 );
 //获取单个tag元素
@@ -39,7 +39,7 @@ export const selectFeatureTagById = createSelector(
 );
 //获取临时标签名称
 export const selectFeatureTempTagName = createSelector(
-    selectMyFeatureState,
+    selectTagState,
     (state) => state.tempTagName,
 );
 

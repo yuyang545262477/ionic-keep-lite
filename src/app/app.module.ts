@@ -13,7 +13,7 @@ import {AppComponent} from "./app.component";
 import {ListsTypeComponent} from "./components/lists-type/lists-type.component";
 import {PageListComponent} from "./components/page-list/page-list.component";
 import {TagListComponent} from "./components/tag-list/tag-list.component";
-import {TagModalModule} from "./modals/tag-modal.module";
+import {ModalsModule} from "./modals/modals.module";
 
 @NgModule({
     declarations: [AppComponent,
@@ -30,7 +30,7 @@ import {TagModalModule} from "./modals/tag-modal.module";
             driverOrder: ["websql", "sqlite", "localstorage"],
         }),
         RootStateModule,
-        TagModalModule,
+        ModalsModule,
     ],
     providers: [
         StatusBar,

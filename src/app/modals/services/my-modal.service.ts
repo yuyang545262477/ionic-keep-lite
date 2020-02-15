@@ -1,12 +1,12 @@
 import {Injectable} from "@angular/core";
 import {ModalController} from "@ionic/angular";
 import {ComponentRef} from "@ionic/core";
-import {ITagModalAction} from "./tagModal.action";
+import {IMyModalAction} from "./myModal.action";
 
 @Injectable({
     providedIn: "root",
 })
-export class TagModalService implements ITagModalAction {
+export class MyModalService implements IMyModalAction {
     private tagModalInstance: HTMLIonModalElement | undefined;
 
     constructor(private modalController: ModalController) {
@@ -18,6 +18,7 @@ export class TagModalService implements ITagModalAction {
         }
         this.tagModalInstance = await this.modalController.create({
             component: component,
+            backdropDismiss: false,
         });
         return await this.tagModalInstance.present();
     }
