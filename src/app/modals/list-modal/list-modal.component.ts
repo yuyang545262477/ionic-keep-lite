@@ -13,7 +13,7 @@ import {Observable} from "rxjs";
 export class ListModalComponent implements OnInit {
     chosenList$: Observable<IList>;
 
-    constructor(private listStore: Store<ListStoreState.State>) {
+    constructor(private  listStore: Store<ListStoreState.State>) {
         this.chosenList$ = listStore.pipe(select(ListStoreSelector.selectListByChosenId));
     }
 
