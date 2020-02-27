@@ -9,17 +9,17 @@ export interface IMenuItem {
 }
 
 
-export const appPages: IMenuItem[] = [
+export const menuItems: IMenuItem[] = [
     {
         title: "Home",
         url: "home",
-        icon: "home",
+        icon: "home-outline",
         action: () => RootStoreAction.goHomePage(),
     },
     {
         title: "List",
         url: "list",
-        icon: "list",
+        icon: "bulb-outline",
         action: () => RootStoreAction.goListPage({}),
     },
 ];

@@ -10,16 +10,17 @@ import {RootStateModule} from "@redux/root-state.module";
 import {AppRoutingModule} from "./app-routing.module";
 
 import {AppComponent} from "./app.component";
-import {ListsTypeComponent} from "./components/lists-type/lists-type.component";
-import {PageListComponent} from "./components/page-list/page-list.component";
-import {TagListComponent} from "./components/tag-list/tag-list.component";
 import {ModalsModule} from "./modals/modals.module";
+import {MenuListComponent} from "./side-menu-components/menu-list/menu-list.component";
+import {TagListComponent} from "./side-menu-components/tag-list/tag-list.component";
+import {UserInfoComponent} from "./side-menu-components/user-info/user-info.component";
 
 @NgModule({
-    declarations: [AppComponent,
+    declarations: [
+        AppComponent,
+        UserInfoComponent,
+        MenuListComponent,
         TagListComponent,
-        ListsTypeComponent,
-        PageListComponent,
     ],
     imports: [
         BrowserModule,

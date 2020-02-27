@@ -1,27 +1,13 @@
 <ion-app>
     <ion-split-pane contentId="main-content">
         <ion-menu contentId="main-content" type="overlay">
-            <ion-header>
-                <ion-toolbar>
-                    <ion-title>Menu</ion-title>
-                </ion-toolbar>
-            </ion-header>
-            <!--侧壁栏-->
-            <ion-content>
-                <!--顶部路由-->
-                <ion-list>
-                    <ion-menu-toggle *ngFor="let p of appPages;trackBy:TrackByPageUrl" auto-hide="false">
-                        <ion-item [routerDirection]="'root'" (click)="dispatchAction(p.action)">
-                            <ion-icon [name]="p.icon" slot="start"></ion-icon>
-                            <ion-label>
-                                {{p.title}}
-                            </ion-label>
-                        </ion-item>
-                    </ion-menu-toggle>
-                </ion-list>
+            <ion-content class="ion-padding ">
+                <!--用户信息-->
+                <side-user-info></side-user-info>
+                <!--页面路由-->
+                <side-menu-list></side-menu-list>
                 <!--标签列表-->
-                <app-tag-list>
-                </app-tag-list>
+                <side-tag-list></side-tag-list>
             </ion-content>
         </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>

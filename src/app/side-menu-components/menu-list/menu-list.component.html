@@ -1,0 +1,13 @@
+<ion-grid class="side-menu-list">
+    <ion-list>
+        <ion-menu-toggle *ngFor="let p of appPages;trackBy:TrackByPageUrl" auto-hide="false">
+            <ion-item class="ion-no-padding" [routerDirection]="'root'"
+                      (click)="dispatchAction(p.action)">
+                <ion-icon [name]="p.icon" slot="start" size="small"></ion-icon>
+                <ion-label>
+                    {{p.title}}
+                </ion-label>
+            </ion-item>
+        </ion-menu-toggle>
+    </ion-list>
+</ion-grid>

@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 import {TagStoreSelectors, TagStoreState} from "../../states/tag-state";
 
 @Component({
-    selector: "app-tag-list",
+    selector: "side-tag-list",
     templateUrl: "./tag-list.component.html",
     styleUrls: ["./tag-list.component.scss"],
     changeDetection: ChangeDetectionStrategy.OnPush,

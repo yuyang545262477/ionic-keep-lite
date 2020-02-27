@@ -3,9 +3,8 @@ import {SplashScreen} from "@ionic-native/splash-screen/ngx";
 import {StatusBar} from "@ionic-native/status-bar/ngx";
 
 import {Platform} from "@ionic/angular";
-import {Action, Store} from "@ngrx/store";
+import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {appPages, IMenuItem} from "./menu-list";
 import {RootStoreSelectors, RootStoreState} from "./states";
 
 @Component({
@@ -14,7 +13,6 @@ import {RootStoreSelectors, RootStoreState} from "./states";
     styleUrls: ["app.component.scss"],
 })
 export class AppComponent implements OnInit {
-    appPages = appPages;
 
     private isLoading$: Observable<boolean>;
     private errorInfo$: Observable<string>;
@@ -26,8 +24,6 @@ export class AppComponent implements OnInit {
     ) {
         this.initializeApp();
     }
-
-    TrackByPageUrl = (_: number, item: IMenuItem) => item.url;
 
     initializeApp() {
         this.platform.ready().then(() => {
@@ -45,10 +41,4 @@ export class AppComponent implements OnInit {
         );
     }
 
-
-    dispatchAction(event: () => Action) {
-        this.rootStore.dispatch(
-            event(),
-        );
-    }
 }
