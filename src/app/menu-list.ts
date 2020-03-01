@@ -10,12 +10,12 @@ export interface IMenuItem {
 
 
 export const menuItems: IMenuItem[] = [
-    {
-        title: "Home",
-        url: "home",
-        icon: "home-outline",
-        action: () => RootStoreAction.goHomePage(),
-    },
+    // {
+    //     title: "Home",
+    //     url: "home",
+    //     icon: "home-outline",
+    //     action: () => RootStoreAction.goHomePage(),
+    // },
     {
         title: "List",
         url: "list",

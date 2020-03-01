@@ -5,6 +5,7 @@ import {select, Store} from "@ngrx/store";
 import {ListStoreSelector, ListStoreState} from "@redux/list-state";
 import {TagStoreSelectors, TagStoreState} from "@redux/tag-state";
 import {Observable} from "rxjs";
+import {RootStoreSelectors, RootStoreState} from "@redux/index";
 
 @Component({
     selector: "app-list",
@@ -14,11 +15,14 @@ import {Observable} from "rxjs";
 export class ListPage implements OnInit {
     chosenTag$: Observable<ITag>;
     lists$: Observable<IList[]>;
+    isLoading$: Observable<boolean>;
 
     constructor(private tagStore: Store<TagStoreState.State>,
+                private appStore: Store<RootStoreState.State>,
                 private listStore: Store<ListStoreState.State>) {
         this.chosenTag$ = this.tagStore.pipe(select(TagStoreSelectors.selectTagChosenInfo));
         this.lists$ = this.listStore.pipe(select(ListStoreSelector.selectAllList));
+        this.isLoading$ = appStore.pipe(select(RootStoreSelectors.selectAllIsLoading));
     }
 
     ngOnInit() {
