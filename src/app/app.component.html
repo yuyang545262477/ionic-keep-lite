@@ -1,13 +1,19 @@
 <ion-app>
     <ion-split-pane contentId="main-content">
         <ion-menu contentId="main-content" type="overlay">
-            <ion-content class="ion-padding ">
-                <!--用户信息-->
-                <side-user-info></side-user-info>
-                <!--页面路由-->
-                <side-menu-list></side-menu-list>
-                <!--标签列表-->
-                <side-tag-list></side-tag-list>
+            <ion-content>
+                <ion-grid class="ion-no-padding">
+                    <!--用户信息-->
+                    <side-user-info></side-user-info>
+                    <!--页面路由-->
+                    <side-menu-list></side-menu-list>
+                    <divider-line></divider-line>
+                </ion-grid>
+                <ion-grid class="ion-no-padding">
+                    <!--标签列表-->
+                    <side-tag-list></side-tag-list>
+                    <divider-line></divider-line>
+                </ion-grid>
             </ion-content>
         </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>

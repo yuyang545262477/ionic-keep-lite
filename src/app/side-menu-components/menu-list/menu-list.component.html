@@ -1,7 +1,8 @@
-<ion-grid class="side-menu-list">
-    <ion-list>
+<ion-grid>
+    <ion-list lines="none" class="ion-no-padding">
         <ion-menu-toggle *ngFor="let p of appPages;trackBy:TrackByPageUrl" auto-hide="false">
-            <ion-item class="ion-no-padding" [routerDirection]="'root'"
+            <ion-item [routerDirection]="'root'"
+                      lines="none"
                       (click)="dispatchAction(p.action)">
                 <ion-icon [name]="p.icon" slot="start" size="small"></ion-icon>
                 <ion-label>

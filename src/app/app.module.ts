@@ -14,6 +14,7 @@ import {ModalsModule} from "./modals/modals.module";
 import {MenuListComponent} from "./side-menu-components/menu-list/menu-list.component";
 import {TagListComponent} from "./side-menu-components/tag-list/tag-list.component";
 import {UserInfoComponent} from "./side-menu-components/user-info/user-info.component";
+import {ShareModule} from "./share/share.module";
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import {UserInfoComponent} from "./side-menu-components/user-info/user-info.comp
         }),
         RootStateModule,
         ModalsModule,
+        ShareModule,
     ],
     providers: [
         StatusBar,
