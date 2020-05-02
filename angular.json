@@ -9,7 +9,12 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -34,12 +39,17 @@
             ],
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "input": "src/styles/main.scss"
               },
               {
                 "input": "src/global.scss"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

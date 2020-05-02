@@ -1,0 +1,63 @@
+%display-flex{
+  display: flex;
+}
+/*aligns*/
+%aliens-middle{
+  align-items: center;
+}
+
+%aliens-top{
+  align-items: flex-start;
+}
+%aliens-bottom{
+  align-items: flex-end;
+}
+/*just-contents*/
+%justly-content-left{
+  justify-content: flex-start;
+}
+%justly-content-center{
+  justify-content: center;
+}
+%justly-content-right{
+  justify-content: flex-end;
+}
+%justly-content-around{
+  justify-content: space-around;
+}
+%justly-content-between{
+  justify-content: space-between;
+}
+/*exports*/
+%flex-center{
+  @extend %display-flex,%aliens-middle,%justly-content-center;
+}
+
+%flex-top-center{
+  @extend %display-flex,%aliens-top,%justly-content-center;
+}
+
+%flex-bottom-center{
+  @extend %display-flex,%aliens-bottom,%justly-content-center
+}
+
+%flex-left-middle{
+  @extend %display-flex,%aliens-middle,%justly-content-left;
+}
+
+%flex-right-middle{
+  @extend %display-flex,%aliens-middle,%justly-content-right;
+}
+
+%flex-between{
+  @extend %display-flex,%aliens-middle,%justly-content-between;
+}
+%flex-around{
+  @extend %display-flex,%aliens-middle,%justly-content-around;
+}
+
+
+
+
+
+

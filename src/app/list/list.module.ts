@@ -6,6 +6,8 @@ import {IonicModule} from "@ionic/angular";
 import {AddListComponent} from "./add-list/add-list.component";
 
 import {ListPage} from "./list.page";
+import { ListInfoBarComponent } from './components/list-info-bar/list-info-bar.component';
+import { ListMenuBarComponent } from './components/list-menu-bar/list-menu-bar.component';
 
 @NgModule({
     imports: [
@@ -19,7 +21,7 @@ import {ListPage} from "./list.page";
             },
         ]),
     ],
-    declarations: [ListPage, AddListComponent],
+    declarations: [ListPage, AddListComponent, ListInfoBarComponent, ListMenuBarComponent],
 })
 export class ListPageModule {
 }

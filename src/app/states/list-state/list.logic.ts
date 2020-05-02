@@ -10,10 +10,12 @@ export const addList = (oldList: IList[]): { latestList: IList[], oldList: IList
         id: uuid(),
         isCollected: false,
         isEditState: false,
-        itemIds: [],
-        levelOneItem: [],
-        levelTwoItem: [],
-        tagId: "",
+        l1ids: [],
+        items: [],
+        l2ids: [],
+        l3ids: [],
+        tagIds: []
+
     };
     if (!Array.isArray(oldList)) {
         return {
