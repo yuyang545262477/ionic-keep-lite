@@ -1,3 +1,8 @@
 <section class="list-menu-bar">
-    <p>list-menu-bar</p>
+    <check-icon (click)="openListModal()"></check-icon>
+    <ion-fab horizontal="end" slot="fixed" vertical="bottom">
+        <ion-fab-button (click)="openListModal()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </section>

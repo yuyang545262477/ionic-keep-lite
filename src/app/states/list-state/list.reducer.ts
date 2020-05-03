@@ -27,6 +27,10 @@ const listReducer = createReducer(
         fromListAction.storageListError,
         (state, {oldList, error}) => ({...state, list: oldList, error}),
     ),
+//    更新选中的id
+    on(fromListAction.updateChosenId,
+        (state, {targetId}) => ({...state, chosenId: targetId}),
+    ),
 );
 
 export function reducer(state: fromListState.State | undefined, action: Action) {

@@ -1,37 +1,40 @@
 @import "main.scss";
-:host{
+
+:host {
   display: block;
 }
 
-.list-info-bar{
+.list-info-bar {
   width: 100%;
   height: $baseSize*4;
   padding: $baseSize/2 $baseSize;
 
-  .bar-content{
+  .bar-content {
     @extend %flex-between;
     height: 100%;
     border-radius: $baseSize/2;
     padding: $baseSize/2;
     border-top-color: #F8F8F8;
-    border-right-color: #EDEDED ;
+    border-right-color: #EDEDED;
     border-left-color: #E5E5E5;
     border-bottom-color: #c5c5c5;
     border-width: 1px;
     border-style: solid;
-    .center-text{
+
+    .center-text {
       flex: 1;
       height: 100%;
       margin: 0 $baseSize/2;
       @extend %flex-left-middle;
       font-size: $baseSize;
-      color: rgba(255,255,255,.8);
-      >span {
+      color: var(--ion-color-light-shade);
+
+      > span {
         margin-bottom: 2px;
       }
     }
 
-    .right-avatar{
+    .right-avatar {
       width: $baseSize*2;
       height: $baseSize*2;
     }

@@ -1,5 +1,6 @@
 import {createAction, props} from "@ngrx/store";
 
+
 export const showSuccessToast = createAction(
     "[App] showSuccessToast",
     props<{ message: string }>(),
@@ -33,8 +34,25 @@ export const goHomePage = createAction(
 export const closeSideMenu = createAction(
     "[App] closeSideMenu",
 );
+/*open menu*/
+export const openSideMenu = createAction(
+    "[App] openSideMenu",
+);
 
+/*open user modal*/
+export const openUserModal = createAction(
+    "[App] openUserModal",
+);
+/*close user modal*/
+export const closeUserModal = createAction(
+    "[App] closeUserModal",
+);
 
-
-
-
+/*open list modal*/
+export const openListModal = createAction(
+    "[App] openListModal",
+    props<{ tagId: string }>(),
+);
+export const closeListModal = createAction(
+    "[App] closeListModal",
+);

@@ -1,2 +1,9 @@
+@import "main.scss";
+
 .list-menu-bar {
+  height: $baseSize*3;
+  padding: $baseSize/2 $baseSize;
+  @extend %flex-left-middle;
+  box-shadow: 4px 0 4px $shadowColor;
 }
+

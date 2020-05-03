@@ -15,10 +15,6 @@ import {TagStateModule} from "./tag-state/tag-state.module";
         ListStateModule,
         StoreModule.forRoot(reducers, {
             metaReducers,
-            runtimeChecks: {
-                strictStateImmutability: true,
-                strictActionImmutability: true,
-            },
         }),
         EffectsModule.forRoot([AppEffects]),
         StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),

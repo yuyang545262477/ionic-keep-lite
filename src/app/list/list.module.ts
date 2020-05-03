@@ -8,6 +8,7 @@ import {AddListComponent} from "./add-list/add-list.component";
 import {ListPage} from "./list.page";
 import { ListInfoBarComponent } from './components/list-info-bar/list-info-bar.component';
 import { ListMenuBarComponent } from './components/list-menu-bar/list-menu-bar.component';
+import {ShareModule} from "../share/share.module";
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { ListMenuBarComponent } from './components/list-menu-bar/list-menu-bar.c
                 component: ListPage,
             },
         ]),
+        ShareModule,
     ],
     declarations: [ListPage, AddListComponent, ListInfoBarComponent, ListMenuBarComponent],
 })

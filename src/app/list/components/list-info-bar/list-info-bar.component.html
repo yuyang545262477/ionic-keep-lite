@@ -1,8 +1,8 @@
 <section class="list-info-bar">
     <div class="bar-content">
-        <ion-icon class="left-icon"  name="menu-outline" size="large"></ion-icon>
-        <div class="center-text"><span>搜索你的记事</span></div>
-        <ion-avatar class="right-avatar">
+        <ion-icon class="left-icon" name="menu-outline" size="large" (click)="openSideMenu()"></ion-icon>
+        <div class="center-text" (click)="openListModal()"><span>搜索你的记事</span></div>
+        <ion-avatar class="right-avatar" (click)="openUserModal()">
             <img alt="avatar" src="assets/images/mountain.jpeg">
         </ion-avatar>
     </div>

@@ -9,6 +9,9 @@ import {catchError, map, mergeMap, switchMap, tap} from "rxjs/operators";
 import {MyModalService} from "../modals/services/my-modal.service";
 import {TagModalComponent} from "../modals/tag-modal/tag-modal.component";
 import * as fromAppActions from "./action";
+import * as fromListActions from "./list-state/list.actions";
+import {UserModalComponent} from "../modals/user-modal/user-modal.component";
+import {ListModalComponent} from "../modals/list-modal/list-modal.component";
 
 @Injectable()
 export class AppEffects {
@@ -81,6 +84,49 @@ export class AppEffects {
             dispatch: false,
         },
     );
+    openSideMenu$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.openSideMenu),
+            tap(() => this.menuController.open()),
+        ),
+        {
+            dispatch: false,
+        },
+    );
+    /*user Modal*/
+    openUserModal$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.openUserModal),
+            tap(() => this.myModalService.present(UserModalComponent)),
+        ), {
+            dispatch: false,
+        },
+    );
+    closeUserModal$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.closeUserModal),
+            tap(() => this.myModalService.dismiss()),
+        ), {
+            dispatch: false,
+        },
+    );
+    /*open List Modal*/
+    openListModal$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.openListModal),
+            map((action) => fromListActions.updateChosenId({targetId: action.tagId})),
+            tap(() => this.myModalService.present(ListModalComponent)),
+        ),
+    );
+    /*close list modal*/
+    closeListModal$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(fromAppActions.closeListModal),
+            map(() => fromListActions.updateChosenId({targetId: ""})),
+            tap(() => this.myModalService.dismiss()),
+        ),
+    );
+
     /*首页路由跳转*/
     goHomePage$ = createEffect(
         () => this.actions$.pipe(

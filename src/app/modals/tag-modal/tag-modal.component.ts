@@ -1,8 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 import {ITag} from "@models/tap.model";
 import {Store} from "@ngrx/store";
-import {closeTagModal} from "@redux/action";
-import {RootStoreState} from "@redux/index";
+import {RootStoreAction, RootStoreState} from "@redux/index";
 import {Observable} from "rxjs";
 import {TagStoreSelectors, TagStoreState} from "../../states/tag-state";
 
@@ -25,7 +24,7 @@ export class TagModalComponent implements OnInit {
 
     closeModal() {
         this.rootStore.dispatch(
-            closeTagModal(),
+            RootStoreAction.closeTagModal(),
         );
     }
 

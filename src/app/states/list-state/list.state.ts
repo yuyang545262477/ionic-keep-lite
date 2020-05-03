@@ -12,7 +12,7 @@ export const initList: IList = {
     l2ids: [],
     l3ids: [],
     items: [],
-    tagIds: []
+    tagIds: [],
 
 };
 

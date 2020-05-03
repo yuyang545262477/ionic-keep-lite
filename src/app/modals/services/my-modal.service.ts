@@ -7,32 +7,21 @@ import {IMyModalAction} from "./myModal.action";
     providedIn: "root",
 })
 export class MyModalService implements IMyModalAction {
-    private tagModalInstance: HTMLIonModalElement | undefined;
+
 
     constructor(private modalController: ModalController) {
     }
 
     async present(component: ComponentRef): Promise<void> {
-        if (this.tagModalInstance) {
-            await this.modalController.dismiss();
-        }
-        this.tagModalInstance = await this.modalController.create({
+        const modalInstance = await this.modalController.create({
             component: component,
             backdropDismiss: false,
         });
-        return await this.tagModalInstance.present();
+        return await modalInstance.present();
     }
 
     async dismiss(): Promise<void> {
-        if (!this.tagModalInstance) {
-            return;
-        }
-        const dismissResult = await this.tagModalInstance.dismiss();
-        if (dismissResult) {
-            this.tagModalInstance = undefined;
-        } else {
-            console.error("dismiss error");
-        }
+        await this.modalController.dismiss();
     }
 
 

@@ -1,12 +1,5 @@
 <ion-content>
     <list-info-bar></list-info-bar>
-    <app-add-list></app-add-list>
-    <ion-list>
-        <ion-list-header>列表</ion-list-header>
-        <ion-item *ngFor="let item of lists$|async;trackBy:trackByItemId">
-            <span>{{item|json}}</span>
-        </ion-item>
-    </ion-list>
 </ion-content>
 <ion-footer>
     <list-menu-bar></list-menu-bar>

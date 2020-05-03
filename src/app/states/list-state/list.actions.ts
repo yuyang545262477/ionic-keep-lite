@@ -1,6 +1,7 @@
 import {IList} from "@models/IList";
 import {createAction, props} from "@ngrx/store";
 
+
 export const loadLists = createAction(
     "[List] Load Lists",
 );
@@ -54,6 +55,12 @@ export const openChosenModal = createAction(
 export const closeListModal = createAction(
     "[List] closeListModal",
 );
+
+export const updateChosenId = createAction(
+    "[List] updateChosenId",
+    props<{ targetId: string }>(),
+);
+
 
 /*删除列表对象*/
 
