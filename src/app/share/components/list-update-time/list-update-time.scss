@@ -1,0 +1,7 @@
+@import 'main.scss';
+
+.list-update-time {
+  @extend %flex-center;
+  font-size: 12px;
+  color: gray;
+}

@@ -1,5 +1,24 @@
-<p>list-modal works!</p>
-
-<ion-row>
-    <ion-button (click)="closeListModal()">关闭选中弹窗</ion-button>
-</ion-row>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <nav-back-icon (click)="closeListModal()" color="black"></nav-back-icon>
+        </ion-buttons>
+        <ion-buttons slot="primary">
+            <pin-icon></pin-icon>
+            <archive-icon class="ion-margin-start"></archive-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content></ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <add-icon></add-icon>
+        </ion-buttons>
+        <list-update-time></list-update-time>
+        <ion-buttons slot="primary">
+            <etc-icon></etc-icon>
+        </ion-buttons>
+        <!--        <ion-title>Standard</ion-title>-->
+    </ion-toolbar>
+</ion-footer>
